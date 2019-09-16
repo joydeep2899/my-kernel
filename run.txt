@@ -1,0 +1,8 @@
+run these commands 
+ gcc -m32 -c kernel.c -o kc.o -fno-stack-protector
+ nasm kernel.asm -o kasm.o -f elf
+ld -m elf_i386 -T link.ld -O kernel kasm.o kc.o
+
+
+qemu-system-i386 -kernel kernel 
+
